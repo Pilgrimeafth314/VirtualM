@@ -1,7 +1,4 @@
-/*
-Autor: Oscar Noe Ortiz Barba
-*/
-//--------------------------
+
 #include <iostream>
 #include <string>
 #include <stdio.h>
@@ -35,7 +32,7 @@ Autor: Oscar Noe Ortiz Barba
 #include "STO.h"
 #include "REST.h"
 //------------------------
-#include "Compiler.h"
+
 
 using namespace std;
 
@@ -69,7 +66,7 @@ int main(int argc, char *argv[])
     Memory memory;
     ProgramLoader programLoader;
     CPU cpu(registers, arithmeticLogicalUnit, controlUnit); 
-    Compiler compiler("test-1.tinyc");
+
 
     system("clear");
     cout << "----- VIRTUAL MACHINE -----\n\n";
@@ -79,8 +76,7 @@ int main(int argc, char *argv[])
     MULT *mult = new MULT("MULT", 81, 3, 30, 10);
     DIV *div = new DIV("DIV", 82, 3, 30, 10);
     REST *rest = new REST("REST", 83, 3, 30, 10);
-    MOV *mov = new MOV("MOV", 84, 3, 30, "BL");
-    //STO *sto = new STO("STO", 85, 3, 30, 10);
+
     END *end = new END("END", 51, 1);
 
     Program program(10);
@@ -90,16 +86,11 @@ int main(int argc, char *argv[])
     program.addInstruction(mult);
     program.addInstruction(div);
     program.addInstruction(rest);
-    program.addInstruction(mov);
     program.addInstruction(end);
 
     cpu.machineCycle(&program); 
-/* 
-    cout << "----- Analyze -----\n\n";
 
-    compiler.analyzeFile(); */
-
-    cout << "\n\n";
+     cout << "\n\n";
 
     return 0;
 }

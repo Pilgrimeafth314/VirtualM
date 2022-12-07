@@ -81,16 +81,8 @@ Register *CU::execute(int _code, Instruction *in)
         cout << aux->getValue() << endl;
     }
     break;
+    
     case 84:
-    {
-        cout << in->getName();
-        auto *ptr_mov = static_cast<MOV *>(in);
-        cout << " " << ptr_mov->getValue() << ", ";
-        cout << ptr_mov->getNameOfRegister() << endl;
-        alu.Mov(ptr_mov->getValue(), aux);
-    }
-    break;
-    case 85:
     {
         cout << in->getName();
     }

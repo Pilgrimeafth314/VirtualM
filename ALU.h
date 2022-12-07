@@ -14,7 +14,6 @@ public:
     int Mult(int, int);
     int Div(int, int);
     void Mov(int, Register *);
-    void Sto(int, Register *);
 };
 
 #endif

@@ -53,37 +53,9 @@ void CPU::machineCycle(Program *program)
 
         //Execute
         auxAcc = cu.execute(code, ptr_IR->getInstruction());
-        if (in->getName() == "MOV")
-        {
-            //instancia MOV
-            auto *ptr_mov = static_cast<MOV *>(in);
-
-            if (ptr_mov->getNameOfRegister() == "AL")
-            {
-                rcpu[5].setValue(ptr_mov->getValue());
-            }
-            else if (ptr_mov->getNameOfRegister() == "AH")
-            {
-                rcpu[6].setValue(ptr_mov->getValue());
-            }
-            else if (ptr_mov->getNameOfRegister() == "BL")
-            {
-                rcpu[7].setValue(ptr_mov->getValue());
-            }
-            else if (ptr_mov->getNameOfRegister() == "BH")
-            {
-                rcpu[8].setValue(ptr_mov->getValue());
-            }
-        }
-        else if (in->getName() == "STO")
-        {
-            //instancia STO
-            //auto *ptr_sto = static_cast<STO *>(in);
-        }
-        else
-        {
-            rcpu[4].setValue(auxAcc->getValue());
-        }
+       
+        //Asigna resultado a acumulador
+        rcpu[4].setValue(auxAcc->getValue());
         printRegisters();
     }
 }
